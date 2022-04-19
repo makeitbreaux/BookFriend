@@ -1,9 +1,9 @@
 {
     "name": "server",
     "version": "0.1.0",
-    "main": "server.js",
+    "main": "app.js",
     "scripts": {
-        "start": "node server/server.js",
+        "start": "node server/app.js",
         "heroku-postbuild": "cd client && npm install && npm run build",
         "test": "jest -i"
     },
