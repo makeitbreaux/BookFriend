@@ -7,11 +7,11 @@ const cors = require("cors");
 const path = require("path");
 
 
-const { NotFoundError } = require("./expressError");
+const { NotFoundError } = require("./server/expressError");
 
-const { authenticateJWT } = require("./middleware/auth");
-const authRoutes = require("./routes/auth");
-const usersRoutes = require("./routes/users");
+const { authenticateJWT } = require("./server/middleware/auth");
+const authRoutes = require("./server/routes/auth");
+const usersRoutes = require("./server/routes/users");
 // const homepageRoutes = require('./routes/homepage');
 
 
