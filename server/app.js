@@ -18,7 +18,6 @@ const usersRoutes = require("./routes/users");
 const morgan = require("morgan");
 
 const app = express();
-require('./server.js');
 app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
