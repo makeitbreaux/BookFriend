@@ -5,6 +5,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const { PORT } = require("./config");
 
 const { NotFoundError } = require("./expressError");
 
@@ -12,7 +13,7 @@ const { authenticateJWT } = require("./middleware/auth");
 const authRoutes = require("./routes/auth");
 const usersRoutes = require("./routes/users");
 // const homepageRoutes = require('./routes/homepage');
-
+const serveStatic = require('serve-static')
 
 const morgan = require("morgan");
 
@@ -23,12 +24,14 @@ app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
 
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.use(serveStatic(path.join(__dirname, 'dist')))
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 // app.use("/homepage", homepageRoutes);
 
-
+app.listen(PORT, function () {
+  console.log(`Started on http://localhost:${PORT}`);
+});
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
   return next(new NotFoundError());
