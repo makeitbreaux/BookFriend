@@ -7,6 +7,10 @@
         "heroku-postbuild": "cd client && npm install && npm run build",
         "test": "jest -i"
     },
+    "engines": {
+        "node": "16.9.1",
+        "npm" : "7.21.1"
+      },
     "jest": {
         "testPathIgnorePatterns": [
           "/node_modules/",
@@ -25,10 +29,11 @@
         "jsonschema": "^1.2.6",
         "jsonwebtoken": "^8.5.1",
         "morgan": "^1.10.0",
-        "pg": "^8.3.0"
+        "pg": "^8.3.0",
+        "supertest": "^5.0.0-0"
     },
     "devDependencies": {
-        "supertest": "^5.0.0-0"
+
     }
 }
 
