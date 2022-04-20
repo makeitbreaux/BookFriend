@@ -2,8 +2,6 @@ import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Homepage.css";
 import UserContext from "../auth/UserContext";
-import AuthorSearchForm from "../routes-nav/AuthorSearchForm";
-import WorkSearchForm from "../routes-nav/WorkSearchForm";
 
 /** Homepage of site.
  *
