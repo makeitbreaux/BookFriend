@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
 
-app.use(express.static(path.resolve(__dirname, "./server")));
+app.use(express.static(path.resolve(__dirname, "./server", 'app.js')));
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 // app.use("/homepage", homepageRoutes);
