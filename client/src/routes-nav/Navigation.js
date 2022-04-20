@@ -61,7 +61,7 @@ function Navigation({ logout }) {
 
   return (
       <nav className="Navigation navbar navbar-dark bg-dark navbar-expand-md">
-        <img src="bookfriendimg.png" width="100" height="100" class="d-inline-block align-top" alt=""></img>
+        <img src="bookfriendimg.png" width="100" height="100" className="d-inline-block align-top" alt=""></img>
         <Link className="navbar-brand" to="/">
           BookFriend
         </Link>
