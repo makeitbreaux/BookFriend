@@ -1,8 +1,8 @@
 "use strict";
 
-import { listen } from "./app";
-import { PORT } from "./config";
+const app = require("./app");
+const { PORT } = require("./config");
 
-listen(PORT, function () {
+app.listen(PORT, function () {
   console.log(`Started on http://localhost:${PORT}`);
 });
