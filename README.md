@@ -41,7 +41,7 @@ The data I used was from the [Open Library](https://openlibrary.org/developers/a
 
 ## Technologies Used
 
-The main technologies I used to build Book Friend were: [React](https://github.com/facebook/react) for the frontend framework, [Express](https://github.com/expressjs/express) as the Node framework, [Node](https://github.com/nodejs/node) as the runtime environment, and [PostgreSql](https://github.com/postgres/postgres) as the database. To test that the application runs as it should, I used [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/).
+The front-end technologies I used to build BookFriend were [React](https://github.com/facebook/react) as the framework, and [BootStrap4](https://getbootstrap.com/) as the styling library. [Express](https://github.com/expressjs/express) and [Node](https://github.com/nodejs/node) were used as the backend technologies, along with [jsonschema](https://json-schema.org/) to validate the JSON documents. I used the [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) and [bcrypt](https://www.npmjs.com/package/bcrypt) libraries to handle user authorization and authentication. I used [PostgreSql](https://github.com/postgres/postgres) as the database. To test that the application runs as it should, I used [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/).
 
 ## Looking Forward
 
