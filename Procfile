@@ -1,1 +1,1 @@
-web: node server.js
+web: node BookFriend/server/server.js
