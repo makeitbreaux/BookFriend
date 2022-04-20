@@ -9,14 +9,14 @@
     },
     "engines": {
         "node": "16.9.1",
-        "npm" : "7.21.1"
-      },
+        "npm": "7.21.1"
+    },
     "jest": {
         "testPathIgnorePatterns": [
-          "/node_modules/",
-          "config.js"
+            "/node_modules/",
+            "config.js"
         ]
-      },
+    },
     "author": "Briana Breaux",
     "license": "ISC",
     "dependencies": {
@@ -29,11 +29,8 @@
         "jsonschema": "^1.2.6",
         "jsonwebtoken": "^8.5.1",
         "morgan": "^1.10.0",
+        "nodemon": "^2.0.15",
         "pg": "^8.3.0",
         "supertest": "^5.0.0-0"
-    },
-    "devDependencies": {
-
     }
 }
-
