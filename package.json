@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "main": "server.js",
     "scripts": {
-        "start": "nodemon server.js",
+        "dev": "react-scripts start",
+        "start": "serve -s build",
         "heroku-postbuild": "cd client && npm install && npm run build",
         "test": "jest -i"
     },
