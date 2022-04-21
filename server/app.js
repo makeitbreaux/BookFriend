@@ -38,7 +38,7 @@ router.get("/*", authorization, async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).json("Server Error");
-  }
+  }})
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
   return next(new NotFoundError());
