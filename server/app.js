@@ -27,7 +27,7 @@ app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 // app.use("/", homepageRoutes);
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '.../client/src/homepage/Homepage.js'))
+  res.sendFile(path.resolve(__dirname, '../homepage/Homepage.js'))
 })
 
 
