@@ -28,10 +28,6 @@ app.use("/users", usersRoutes);
 // app.use("/", homepageRoutes);
 
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
-
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
   return next(new NotFoundError());
