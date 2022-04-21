@@ -27,7 +27,7 @@ app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 // app.use("/", homepageRoutes);
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../homepage/Homepage.js'))
+  res.sendFile(path.resolve('/home/briana/Projects/BookFriend/client/src/homepage/Homepage.js'))
 })
 
 
