@@ -36,10 +36,10 @@ class BookFriendApi {
 
   /** Get the homepage. */
 
-  static async getHomepage() {
-    let res = await this.request(`https://book-friend.herokuapp.com/`);
-    return res.json();
-  }
+  // static async getHomepage() {
+  //   let res = await this.request(`https://book-friend.herokuapp.com/`);
+  //   return res.json();
+  // }
 
   /** Get the current user. */
 
