@@ -1,5 +1,4 @@
 const express = require("express");
-const { BadRequestError } = require("../expressError");
 const router = new express.Router();
 
 router.get("/", async (req, res, next) => {
@@ -8,7 +7,7 @@ router.get("/", async (req, res, next) => {
         return res.status(200).json({index});
         
     } catch (error) {
-        return next(new BadRequestError());
+        return next(error);
     }})
   
 
