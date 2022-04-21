@@ -33,6 +33,7 @@ const WorkSearchForm = () => {
         try {
             // * call API with info input into form
             let {first_name, last_name} = inputs;
+            // eslint-disable-next-line
             const firstRequest = await fetch(`https://openlibrary.org/search/authors.json?q=` + `${first_name}` + `%20` + `${last_name}`, {
                 method: "GET"
         })

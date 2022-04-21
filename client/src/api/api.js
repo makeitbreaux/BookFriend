@@ -34,6 +34,13 @@ class BookFriendApi {
 
   // Individual API routes
 
+  /** Get the homepage. */
+
+  static async getHomepage() {
+    let res = await this.request(`/homepage`);
+    return res.json(res);
+  }
+
   /** Get the current user. */
 
   static async getCurrentUser(username) {
