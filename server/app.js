@@ -27,6 +27,18 @@ app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 // app.use("/homepage", homepageRoutes);
 
+const router = express.Router();
+
+router.get("/*", authorization, async (req, res) => {
+  try {
+
+      const user = await pool.query(`SELECT * FROM users WHERE user_id = $1`, [req.user_id]);
+      return res.json(user.rows[0]);
+
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json("Server Error");
+  }
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
   return next(new NotFoundError());
