@@ -1,25 +1,22 @@
 "use strict";
 /** Database setup for jobly. */
-require('dotenv').config();
-const { Client } = require('pg');
+const { Client } = require("pg");
+const { getDatabaseUri } = require("./config");
 
-const dbSetting = process.env.DATABASE_URL ?
-    {
-        connectionString: process.env.DATABASE_URL,
-        ssl: {
-            rejectUnauthorized: false
-        }
-    }
-    :
-    {
-        user: process.env.POSTGRE_USER,
-        host: process.env.POSTGRE_HOST,
-        database: process.env.POSTGRE_LOCAL_DATABASE,
-        password: process.env.POSTGRE_password,
-        port: process.env.POSTGRE_PORT
-    }
+let db;
 
-const db = new Client(dbSetting);
+if (process.env.NODE_ENV === "production") {
+  db = new Client({
+    connectionString: getDatabaseUri(),
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
+} else {
+  db = new Client({
+    connectionString: getDatabaseUri()
+  });
+}
 
 db.connect();
 
