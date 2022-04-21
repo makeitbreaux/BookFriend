@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Homepage.css";
 import UserContext from "../auth/UserContext";
@@ -15,6 +15,23 @@ import UserContext from "../auth/UserContext";
 function Homepage() {
   const { currentUser } = useContext(UserContext);
   console.debug("Homepage", "currentUser=", currentUser);
+
+  const getPage = async () => {
+    try {
+      const res = await fetch("https://book-friend.herokuapp.com/", {
+        method: "GET"
+      });
+
+      const parseData = await res.json();
+      return res.send(parseData)
+
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  useEffect(() => {
+    getPage();
+}, []);  
 
   return (
       <div className="Homepage">
