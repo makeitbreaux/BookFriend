@@ -4,7 +4,7 @@
 
 const express = require("express");
 const cors = require("cors");
-const path = require("path");
+// const path = require("path");
 const { NotFoundError } = require("./expressError");
 const { authenticateJWT } = require("./middleware/auth");
 const authRoutes = require("./routes/auth");
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
 // Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, 'client/build')))
+// app.use(express.static(path.join(__dirname, 'client/build')))
 // Anything that doesn't match the above, send back index.html
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname + '/client/build/index.html'))

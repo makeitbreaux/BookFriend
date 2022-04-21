@@ -2,7 +2,7 @@ const express = require("express");
 const { BadRequestError } = require("../expressError");
 const router = new express.Router();
 
-router.get("/homepage", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
     try {
         const index = await getHomepage(req.body);
         res.send(index)

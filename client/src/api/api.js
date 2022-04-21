@@ -38,7 +38,7 @@ class BookFriendApi {
 
   static async getHomepage() {
     let res = await this.request(`/homepage`);
-    return res.send(res);
+    return res.json();
   }
 
   /** Get the current user. */
