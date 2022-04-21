@@ -26,6 +26,9 @@ app.use(express.static(path.join(__dirname, 'client/build')))
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 // app.use("/", homepageRoutes);
+app.get('/', (req, res) => {
+  res.send('root')
+})
 
 
 /** Handle 404 errors -- this matches everything */
