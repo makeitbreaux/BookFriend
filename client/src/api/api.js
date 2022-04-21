@@ -37,7 +37,7 @@ class BookFriendApi {
   /** Get the homepage. */
 
   static async getHomepage() {
-    let res = await this.request(`/homepage`);
+    let res = await this.request(`https://book-friend.herokuapp.com/`);
     return res.json();
   }
 
