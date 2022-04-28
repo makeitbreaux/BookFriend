@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'client/build')))
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 // app.use("/", homepageRoutes);
+//TESTING THAT ROOT WORKS, IT DID
 // app.get('/', (req, res) => {
 //   res.send(path.resolve('/home/briana/Projects/BookFriend/client/src/homepage/Homepage.js'))
 // })
