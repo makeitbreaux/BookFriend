@@ -87,7 +87,7 @@ class User {
           firstName,
           lastName,
           email,
-          isAdmin,
+          isAdmin
         ],
     );
 

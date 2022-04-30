@@ -27,20 +27,12 @@ class BookFriendApi {
       return (await axios({ url, method, data, params, headers })).data;
     } catch (err) {
       console.error("API Error:", err.response);
-      let message = err.response.data.error.message;
+      let message = err.response.data;
       throw Array.isArray(message) ? message : [message];
     }
   }
 
   // Individual API routes
-
-  /** Get the homepage. */
-
-  // static async getHomepage() {
-  //   let res = await this.request(`https://book-friend.herokuapp.com/`);
-  //   return res.json();
-  // }
-
   /** Get the current user. */
 
   static async getCurrentUser(username) {
