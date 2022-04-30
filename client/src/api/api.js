@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://book-friend.herokuapp.com/";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://book-friend.herokuapp.com";
 
 /** API Class.
  *
