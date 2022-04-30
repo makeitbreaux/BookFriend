@@ -1,7 +1,7 @@
 {
     "name": "server",
     "version": "0.1.0",
-    "main": "server.js",
+    "main": "app.js",
     "scripts": {
         "start": "concurrently \"npm run server\" \"cd ..client && npm start",
         "server": "nodemon app.js",

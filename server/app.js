@@ -1,7 +1,8 @@
 "use strict";
 
 /** Express app for BookFriend. */
-
+const { PORT } = require("./config");
+const HOST = process.env.HOST || '0.0.0.0'
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -49,3 +50,7 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+app.listen(PORT, HOST, function () {
+  console.log(`Started on http://localhost:${PORT}`);
+});
