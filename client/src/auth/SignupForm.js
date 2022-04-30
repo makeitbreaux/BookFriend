@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "../common/Alert";
-import BookFriendApi from "../api/api";
 
 /** Signup form.
  *
  * Shows form and manages update to state on changes.
  * On submission:
  * - calls signup function prop
- * - redirects to /dashboard route
+ * - redirects to / route
  *
  * Routes -> SignupForm -> Alert
  * Routed as /signup
@@ -39,7 +38,7 @@ function SignupForm({ signup }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await BookFriendApi.signup(formData);
+    let result = await signup(formData);
     if (result.success) {
       history.push("/");
     } else {

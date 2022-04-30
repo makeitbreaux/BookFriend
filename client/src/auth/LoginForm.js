@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "../common/Alert";
-import BookFriendApi from "../api/api";
+
 
 /** Login form.
  *
@@ -31,12 +31,12 @@ function LoginForm({ login }) {
 
   /** Handle form submit:
    *
-   * Calls login func prop and, if successful, redirect to /companies.
+   * Calls login func prop and, if successful, redirect to /.
    */
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await BookFriendApi.login(formData);
+    let result = await login(formData);
     if (result.success) {
       history.push("/");
     } else {
