@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "#user",
+    "$id": "https://book-friend.herokuapp.com/auth/register",
     "type": "object",
     "properties": {
       "username": {

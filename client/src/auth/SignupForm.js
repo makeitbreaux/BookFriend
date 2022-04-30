@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "../common/Alert";
+import BookFriendApi from "../api/api";
 
 /** Signup form.
  *
@@ -38,7 +39,7 @@ function SignupForm({ signup }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await signup(formData);
+    let result = await BookFriendApi.signup(formData);
     if (result.success) {
       history.push("/");
     } else {
