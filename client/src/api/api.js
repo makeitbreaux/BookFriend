@@ -24,7 +24,7 @@ class BookFriendApi {
         : {};
 
     try {
-      return (await axios({ url, method, data, params, headers })).data;
+      return (await axios({ url, data, method, params, headers })).data;
     } catch (err) {
       console.error("API Error:", err.message);
       let message = err.response.data.error;

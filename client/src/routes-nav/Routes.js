@@ -13,7 +13,7 @@ import WorkSearchForm from "./WorkSearchForm";
  * Parts of site should only be visitable when logged in. Those routes are
  * wrapped by <PrivateRoute>, which is an authorization component.
  *
- * Visiting a non-existant route redirects to the homepage.
+ * Visiting a non-existent route redirects to the homepage.
  */
 
 function Routes({ login, signup }) {
