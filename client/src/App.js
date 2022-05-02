@@ -54,8 +54,8 @@ function App() {
           BookFriendApi.token = token;
           let currentUser = await BookFriendApi.getCurrentUser(username);
           setCurrentUser(currentUser);
-        } catch (err) {
-          console.error("App loadUserInfo: problem loading", err);
+        } catch (errors) {
+          console.error("App loadUserInfo: problem loading", errors);
           setCurrentUser(null);
         }
       }
@@ -86,9 +86,9 @@ function App() {
       let token = await BookFriendApi.signup(signupData);
       setToken(token);
       return { success: true };
-    } catch (err) {
-      console.error("signup failed", err);
-      return { success: false, errors: [err] };
+    } catch (errors) {
+      console.error("signup failed", errors);
+      return { success: false, errors };
     }
   }
 
@@ -101,9 +101,9 @@ function App() {
       let token = await BookFriendApi.login(loginData);
       setToken(token);
       return { success: true };
-    } catch (err) {
-      console.error("login failed", err);
-      return { success: false, errors : [err] };
+    } catch (errors) {
+      console.error("login failed", errors);
+      return { success: false, errors };
     }
   }
 
