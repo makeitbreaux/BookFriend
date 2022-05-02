@@ -7,6 +7,7 @@ import LoadingSpinner from "./common/LoadingSpinner";
 import BookFriendApi from "./api/api";
 import UserContext from "./auth/UserContext";
 import jwt from "jsonwebtoken";
+import axios from "axios";
 
 // Key name for storing token in localStorage for "remember me" re-login
 export const TOKEN_STORAGE_ID = "bookfriend-token";
@@ -83,7 +84,7 @@ function App() {
    */
   async function signup(signupData) {
     try {
-      let token = await BookFriendApi.signup(signupData);
+      let token = await axios.post("https://book-friend.herokuapp.com/auth/register", signupData);
       setToken(token);
       return { success: true };
     } catch (err) {
