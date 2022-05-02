@@ -20,7 +20,7 @@ function Routes({ login, signup }) {
   console.debug(
       "Routes",
       `login=${typeof login}`,
-      `register=${typeof register}`,
+      `signup=${typeof signup}`,
   );
 
   return (
