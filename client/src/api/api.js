@@ -43,7 +43,8 @@ class BookFriendApi {
   /** Get token for login from username, password. */
 
   static async login(data) {
-    let res = await this.request(`auth/token`, data, "post");
+    let res = await axios.post(`auth/token`, data);
+    console.log(res.data)
     return res.token;
   }
 
