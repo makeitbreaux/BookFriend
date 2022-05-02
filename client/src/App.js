@@ -88,7 +88,7 @@ function App() {
       return { success: true };
     } catch (errors) {
       console.error("signup failed", errors);
-      return { success: false, errors };
+      return { success: false, errors: [errors] };
     }
   }
 
@@ -103,7 +103,7 @@ function App() {
       return { success: true };
     } catch (errors) {
       console.error("login failed", errors);
-      return { success: false, errors };
+      return { success: false, errors: [errors] };
     }
   }
 
