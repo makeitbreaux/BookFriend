@@ -42,7 +42,7 @@ function SignupForm({ signup }) {
     evt.preventDefault();
     const body = formData ;
 
-    const result = await fetch("/authentication/register", {
+    const result = await fetch("/auth/register", {
         method: "POST",
         headers: {token : localStorage.token},
         body: JSON.stringify(body)

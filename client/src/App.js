@@ -86,9 +86,9 @@ function App() {
     try {
       const body = signupData ;
 
-      const token = await fetch("/authentication/register", {
+      const token = await fetch("/auth/register", {
           method: "POST",
-          headers: {"Content-type" : "application/json"},
+          headers: {token : localStorage.token},
           body: JSON.stringify(body)
       })
       // let token = await axios.post("https://book-friend.herokuapp.com/auth/register", signupData);
