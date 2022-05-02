@@ -84,7 +84,14 @@ function App() {
    */
   async function signup(signupData) {
     try {
-      let token = await axios.post("https://book-friend.herokuapp.com/auth/register", signupData);
+      const body = signupData ;
+
+      const token = await fetch("/authentication/register", {
+          method: "POST",
+          headers: {"Content-type" : "application/json"},
+          body: JSON.stringify(body)
+      })
+      // let token = await axios.post("https://book-friend.herokuapp.com/auth/register", signupData);
       setToken(token);
       return { success: true };
     } catch (err) {

@@ -40,7 +40,14 @@ function SignupForm({ signup }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    let result = await axios.post("https://book-friend.herokuapp.com/auth/register", formData);
+    const body = formData ;
+
+    const result = await fetch("/authentication/register", {
+        method: "POST",
+        headers: {"Content-type" : "application/json"},
+        body: JSON.stringify(body)
+    })
+    // let result = await axios.post("https://book-friend.herokuapp.com/auth/register", formData);
     if (result.success) {
       history.push("/");
     } else {
