@@ -28,8 +28,7 @@ class User {
                   password,
                   first_name AS "firstName",
                   last_name AS "lastName",
-                  email,
-                  is_admin AS "isAdmin"
+                  email
            FROM users
            WHERE username = $1`,
         [username],
@@ -57,7 +56,7 @@ class User {
    **/
 
   static async register(
-      { username, password, firstName, lastName, email, isAdmin }) {
+      { username, password, firstName, lastName, email}) {
     const duplicateCheck = await db.query(
           `SELECT username
            FROM users
@@ -77,17 +76,15 @@ class User {
             password,
             first_name,
             last_name,
-            email,
-            is_admin)
-           VALUES ($1, $2, $3, $4, $5, $6)
-           RETURNING username, first_name AS "firstName", last_name AS "lastName", email, is_admin AS "isAdmin"`,
+            email)
+           VALUES ($1, $2, $3, $4, $5)
+           RETURNING username, first_name AS "firstName", last_name AS "lastName", email`,
         [
           username,
           hashedPassword,
           firstName,
           lastName,
           email,
-          isAdmin,
         ],
     );
 
@@ -106,8 +103,7 @@ class User {
           `SELECT username,
                   first_name AS "firstName",
                   last_name AS "lastName",
-                  email,
-                  is_admin AS "isAdmin"
+                  email
            FROM users
            ORDER BY username`,
     );
@@ -128,8 +124,7 @@ class User {
           `SELECT username,
                   first_name AS "firstName",
                   last_name AS "lastName",
-                  email,
-                  is_admin AS "isAdmin"
+                  email
            FROM users
            WHERE username = $1`,
         [username],
@@ -169,7 +164,7 @@ class User {
         {
           firstName: "first_name",
           lastName: "last_name",
-          isAdmin: "is_admin",
+
         });
     const usernameVarIdx = "$" + (values.length + 1);
 
@@ -179,8 +174,7 @@ class User {
                       RETURNING username,
                                 first_name AS "firstName",
                                 last_name AS "lastName",
-                                email,
-                                is_admin AS "isAdmin"`;
+                                email`;
     const result = await db.query(querySql, [...values, username]);
     const user = result.rows[0];
 
