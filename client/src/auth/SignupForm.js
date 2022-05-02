@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "../common/Alert";
@@ -40,14 +39,7 @@ function SignupForm({ signup }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    const body = formData ;
-
-    const result = await fetch("/auth/register", {
-        method: "POST",
-        headers: {token : localStorage.token},
-        body: JSON.stringify(body)
-    })
-    // let result = await axios.post("https://book-friend.herokuapp.com/auth/register", formData);
+    let result = await signup(formData);
     if (result.success) {
       history.push("/");
     } else {
