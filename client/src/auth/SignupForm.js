@@ -42,7 +42,7 @@ function SignupForm({ signup }) {
     if (result.success) {
       history.push("/");
     } else {
-      setFormErrors(result.errors);
+      setFormErrors(result.errors.message);
     }
   }
 
