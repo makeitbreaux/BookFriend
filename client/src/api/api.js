@@ -43,14 +43,14 @@ class BookFriendApi {
   /** Get token for login from username, password. */
 
   static async login(data) {
-    let res = await axios.post(`auth/token`, data);
+    let res = await axios.post(`${BASE_URL}/auth/token`, data);
     return res.token;
   }
 
   /** Signup for site. */
 
   static async signup(data) {
-    let res = await this.request(`auth/register`, data, "post");
+    let res = await axios.post(`${BASE_URL}/auth/register`, data);
     return res.token;
   }
   /** Save user profile page. */

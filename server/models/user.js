@@ -42,7 +42,7 @@ class User {
       const isValid = await bcrypt.compare(password, user.password);
       if (isValid === true) {
         delete user.password;
-        res.send(user);
+        return user;
       }
     }
 
@@ -91,7 +91,7 @@ class User {
 
     const user = result.rows[0];
 
-    res.send(user);
+    return user;
   }
 
   /** Find all users.
@@ -136,7 +136,7 @@ class User {
 
     if (!user) throw new NotFoundError(`No user: ${username}`);
 
-    res.send(user);
+    return user;
   }
 
   /** Update user data with `data`.
@@ -184,7 +184,7 @@ class User {
     if (!user) throw new NotFoundError(`No user: ${username}`);
 
     delete user.password;
-    res.send(user);
+    return user;
   }
 
   /** Delete given user from database; returns undefined. */
