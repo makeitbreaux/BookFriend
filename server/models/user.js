@@ -23,6 +23,7 @@ class User {
 
   static async authenticate(username, password) {
     // try to find the user first
+    const { username, password} = req.body
     const result = await db.query(
           `SELECT username,
                   password,
@@ -41,7 +42,7 @@ class User {
       const isValid = await bcrypt.compare(password, user.password);
       if (isValid === true) {
         delete user.password;
-        return user;
+        res.send(user);
       }
     }
 
@@ -67,7 +68,7 @@ class User {
     if (duplicateCheck.rows[0]) {
       throw new BadRequestError(`Duplicate username: ${username}`);
     }
-
+    const { username, password, firstName, lastName, email } = req.body
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
 
     const result = await db.query(
@@ -90,7 +91,7 @@ class User {
 
     const user = result.rows[0];
 
-    return user;
+    res.send(user);
   }
 
   /** Find all users.
@@ -120,6 +121,7 @@ class User {
    **/
 
   static async get(username) {
+    const { username } = req.body
     const userRes = await db.query(
           `SELECT username,
                   first_name AS "firstName",
@@ -134,7 +136,7 @@ class User {
 
     if (!user) throw new NotFoundError(`No user: ${username}`);
 
-    return user;
+    res.send(user);
   }
 
   /** Update user data with `data`.
@@ -155,6 +157,7 @@ class User {
    */
 
   static async update(username, data) {
+    const { username } = req.body
     if (data.password) {
       data.password = await bcrypt.hash(data.password, BCRYPT_WORK_FACTOR);
     }
@@ -181,12 +184,13 @@ class User {
     if (!user) throw new NotFoundError(`No user: ${username}`);
 
     delete user.password;
-    return user;
+    res.send(user);
   }
 
   /** Delete given user from database; returns undefined. */
 
   static async remove(username) {
+    const { username } = req.body
     let result = await db.query(
           `DELETE
            FROM users
