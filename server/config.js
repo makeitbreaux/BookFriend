@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8080;
 function getDatabaseUri() {
   return (process.env.NODE_ENV === "test")
       ? "bookfriend_test"
-      : process.env.DATABASE_URL || 'postgres://localhost:5432/bookfriend';
+      : process.env.DATABASE_URL || 'postgres://nabxygftvdyrem:3973ff4fe6ce34365a1823a421ae69e08a01e28537f12e92cffeb9bd03664fc4@ec2-34-194-158-176.compute-1.amazonaws.com:5432/d8tobp3l8qbusl';
 }
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
@@ -35,4 +35,5 @@ module.exports = {
   getDatabaseUri,
 };
 
+// TO CREATE CONNECTION IN DB TO HEROKU PG DB
 // psql --host=ec2-34-194-158-176.compute-1.amazonaws.com --port=5432 --username=nabxygftvdyrem --password --dbname=d8tobp3l8qbusl
