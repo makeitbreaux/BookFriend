@@ -34,3 +34,5 @@ module.exports = {
   BCRYPT_WORK_FACTOR,
   getDatabaseUri,
 };
+
+// psql --host=ec2-34-194-158-176.compute-1.amazonaws.com --port=5432 --username=nabxygftvdyrem --password --dbname=d8tobp3l8qbusl
