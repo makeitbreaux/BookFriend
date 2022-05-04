@@ -39,13 +39,13 @@ function Routes({ login, signup }) {
             <SignupForm signup={signup} />
           </Route>
 
-          <PrivateRoute exact path="/authors">
+          <Route exact path="/authors">
             <AuthorSearchForm />
-          </PrivateRoute>
+          </Route>
 
-          <PrivateRoute exact path="/works">
+          <Route exact path="/works">
             <WorkSearchForm />
-          </PrivateRoute>
+          </Route>
 
           <PrivateRoute path="/profile">
             <ProfileForm />
