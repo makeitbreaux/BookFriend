@@ -56,8 +56,11 @@ class BookFriendApi {
           'Access-Control-Allow-Origin': '*',
       }
     };
+    
     const body = JSON.stringify({ username, password, firstName, lastName, email }) ;
-    let res = await axios.post(`${BASE_URL}/auth/register`, body, axiosConfig );
+    
+    let res = await axios.post(`${BASE_URL}/auth/register`, body, axiosConfig ).then(res => console.log(res))
+    .catch(err => console.log(err));;
     return res.token;
   }
   /** Save user profile page. */

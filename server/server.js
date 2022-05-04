@@ -11,12 +11,15 @@ const { NotFoundError } = require("./expressError");
 const authRoutes = require("./routes/auth");
 const usersRoutes = require("./routes/users");
 // const homepageRoutes = require('./routes/homepage');
+const bodyParser = require('body-parser');
 const morgan = require("morgan");
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 app.use(morgan("tiny"));
+
 // app.use(authenticateJWT);
 
 // Serve static files from the React frontend app

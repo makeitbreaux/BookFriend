@@ -23,7 +23,6 @@ class User {
 
   static async authenticate(username, password) {
     // try to find the user first
-    const { username, password} = req.body
     const result = await db.query(
           `SELECT username,
                   password,
@@ -68,7 +67,7 @@ class User {
     if (duplicateCheck.rows[0]) {
       throw new BadRequestError(`Duplicate username: ${username}`);
     }
-    const { username, password, firstName, lastName, email } = req.body
+
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
 
     const result = await db.query(
@@ -121,7 +120,6 @@ class User {
    **/
 
   static async get(username) {
-    const { username } = req.body
     const userRes = await db.query(
           `SELECT username,
                   first_name AS "firstName",
@@ -157,7 +155,6 @@ class User {
    */
 
   static async update(username, data) {
-    const { username } = req.body
     if (data.password) {
       data.password = await bcrypt.hash(data.password, BCRYPT_WORK_FACTOR);
     }
@@ -190,7 +187,6 @@ class User {
   /** Delete given user from database; returns undefined. */
 
   static async remove(username) {
-    const { username } = req.body
     let result = await db.query(
           `DELETE
            FROM users
