@@ -21,11 +21,16 @@ app.use(authenticateJWT);
 
 // Serve static files from the React frontend app
 // app.use(express.directory(path.resolve(__dirname, '/')));
-app.use(express.static(path.resolve(__dirname, '../client/build')))
-// Anything that doesn't match the above, send back index.html
+
+app.use(express.static(path.join(__dirname, 'build')));
 app.get('/^\/(?!api).*/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+// app.use(express.static(path.resolve(__dirname, '../client/build')))
+// Anything that doesn't match the above, send back index.html
+// app.get('/^\/(?!api).*/', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+// });
 
 
 app.use("/auth", authRoutes);
