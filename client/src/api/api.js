@@ -50,19 +50,14 @@ class BookFriendApi {
   /** Signup for site. */
 
   static async signup({ username, password, firstName, lastName, email }) {
-    const data = JSON.stringify({ username, password, firstName, lastName, email }) ;
-    const url = `${BASE_URL}/auth/register`;
-    const options = {
-      method: 'POST',
+    const axiosConfig = {
       headers: {
           'Content-Type': 'application/json',
-          "Access-Control-Allow-Origin": "*",
-      },
-      data,
-      url,
+          'Access-Control-Allow-Origin': '*',
+      }
     };
-
-    let res = axios(options);
+    const body = JSON.stringify({ username, password, firstName, lastName, email }) ;
+    let res = await axios.post(`${BASE_URL}/auth/register`, body, axiosConfig );
     return res.token;
   }
   /** Save user profile page. */
