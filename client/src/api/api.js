@@ -1,4 +1,4 @@
-import axios from "axios";
+import {axios, axiosConfig } from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "https://book-friend.herokuapp.com";
 
@@ -49,8 +49,15 @@ class BookFriendApi {
 
   /** Signup for site. */
 
-  static async signup(data) {
-    let res = await axios.post(`${BASE_URL}/auth/register`, data);
+  static async signup({ username, password, firstName, lastName, email }) {
+    let axiosConfig = {
+      headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+      }
+    };
+    const body = { username, password, firstName, lastName, email } ;
+    let res = await axios.post(`${BASE_URL}/auth/register`, body, axiosConfig );
     return res.token;
   }
   /** Save user profile page. */
