@@ -1,22 +1,15 @@
 "use strict";
 /** Database setup for jobly. */
 const { Client } = require("pg");
-const { getDatabaseUri } = require("./config");
+const connectionString = `postgresql://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`
 
-let db;
 
-if (process.env.NODE_ENV === "production") {
-  db = new Client({
-    connectionString: getDatabaseUri(),
-    ssl: {
-      rejectUnauthorized: false
-    }
-  });
-} else {
-  db = new Client({
-    connectionString: getDatabaseUri()
-  });
-}
+const db = new Client({
+  connectionString: isProduction
+    ? process.env.DATABASE_URL // Heroku will supply us with a string called DATABASE_URL for the connectionString,
+    : connectionString,
+  ssl: isProduction ? { rejectUnauthorized: false } : false,
+});
 
 db.connect();
 
