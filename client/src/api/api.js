@@ -1,4 +1,4 @@
-import {axios, axiosConfig } from "axios";
+import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "https://book-friend.herokuapp.com";
 
@@ -24,7 +24,7 @@ class BookFriendApi {
         : {};
 
     try {
-      return (await axios({ url, data, method, params, headers })).data;
+      return (await axios({ url, method, data, params, headers })).data;
     } catch (err) {
       console.error("API Error:", err.message);
       let message = err.response.data.error;
@@ -43,24 +43,14 @@ class BookFriendApi {
   /** Get token for login from username, password. */
 
   static async login(data) {
-    let res = await axios.post(`${BASE_URL}/auth/token`, data);
+    let res = await this.request(`auth/token`, data, "post");
     return res.token;
   }
 
   /** Signup for site. */
 
-  static async signup({ username, password, firstName, lastName, email }) {
-    const axiosConfig = {
-      headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-      }
-    };
-    
-    const body = JSON.stringify({ username, password, firstName, lastName, email }) ;
-    
-    let res = await axios.post(`${BASE_URL}/auth/register`, body, axiosConfig ).then(res => console.log(res))
-    .catch(err => console.log(err));;
+  static async signup(data) {
+    let res = await this.request(`auth/register`, data, "post");
     return res.token;
   }
   /** Save user profile page. */

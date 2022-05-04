@@ -81,10 +81,9 @@ function App() {
    *
    * Make sure you await this function and check its return value!
    */
-  async function signup({ username, password, firstName, lastName, email }) {
+  async function signup(signupData) {
     try {
-      const data = { username, password, firstName, lastName, email }
-      let token = await BookFriendApi.signup(data);
+      let token = await BookFriendApi.signup(signupData);
       setToken(token);
       return { success: true };
     } catch (errors) {
