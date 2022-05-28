@@ -45,7 +45,7 @@ const WorkSearchForm = () => {
             setName(name)
             console.log(authorKey)
             // * call author API with authorKey from form search
-            const secondRequest = await fetch(`http://openlibrary.org/authors/${key}/works.json?language=eng`, {
+            const secondRequest = await fetch(`https://openlibrary.org/authors/${key}/works.json?language=eng`, {
                         method: "GET"
             })
             const secondResponse = await secondRequest.json()
