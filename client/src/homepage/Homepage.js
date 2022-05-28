@@ -23,13 +23,13 @@ function Homepage() {
           <h1 className="mb-4 font-weight-bold">BookFriend</h1>
           <img className="mx-auto h-30 p-0 m-0 pt-0" src="./bookfriendimg1.png" alt="BookFriend" />
           <p className="lead">Search for your favorite authors and books information.</p>
-          <Link className="btn btn-info mr-3" to="/authors">Authors </Link>
-                <Link className="btn btn-info mr-3" to="/works"> Works</Link>
+          {/* <Link className="btn btn-info font-weight-bold mr-3" to="/authors">Authors </Link>
+                <Link className="btn btn-info font-weight-bold mr-3" to="/works"> Works</Link> */}
           {currentUser
               ? <h2>
                 Welcome Back, {currentUser.firstName || currentUser.username}! <div>
-                <Link className="btn btn-info mr-3" to="/authors">Authors </Link>
-                <Link className="btn btn-info mr-3" to="/works"> Works</Link>
+                <Link className="btn btn-info font-weight-bold mr-3" to="/authors">Authors </Link>
+                <Link className="btn btn-info font-weight-bold mr-3" to="/works"> Works</Link>
                 </div>
               </h2>
 

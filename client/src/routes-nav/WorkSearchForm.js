@@ -90,8 +90,7 @@ return (
                     className="form-control" 
                     />
                 </div>
-                    
-            <div className="d-grid gap-2">
+                <div className="d-grid gap-2">
                 <button type="submit" onClick={onClick} className="btn btn-info btn-block mt-4"> Search for Works of Author </button>
                 { showResults ? <Results /> : null }
             </div>
