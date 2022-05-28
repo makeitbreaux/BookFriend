@@ -53,7 +53,6 @@ const WorkSearchForm = () => {
             
             setWorks(works)
             console.log(secondResponse)
-    
         } catch (err) {
             console.error(err)
             }
